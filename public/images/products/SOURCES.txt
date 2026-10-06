@@ -1,0 +1,36 @@
+Product image sources
+=====================
+
+Open Food Facts product photos
+- indomie-goreng.jpg: https://world.openfoodfacts.org/product/0089686010947
+- mie-sedaap.jpg: https://world.openfoodfacts.org/product/8998866200813
+- le-minerale.jpg: https://world.openfoodfacts.org/product/18996001600266
+- teh-botol-sosro.jpg: https://world.openfoodfacts.org/product/8996006858016
+- teh-pucuk.jpg: https://world.openfoodfacts.org/product/8996001600146
+- kopi-kapal-api.jpg: https://world.openfoodfacts.org/product/8991002105645
+
+Pexels product photos
+- aqua-600.jpg: https://www.pexels.com/photo/three-clear-water-bottles-2479095/
+- kopi-sachet.jpg: https://www.pexels.com/photo/coffee-sachets-in-glass-container-7826201/
+- cokelat-uht.jpg: https://images.pexels.com/photos/31012757/pexels-photo-31012757.jpeg
+- susu-kental-manis.jpg: https://images.pexels.com/photos/17748173/pexels-photo-17748173.jpeg
+
+Additional Pexels product photos
+- noodle-soup.jpg: https://www.pexels.com/photo/instant-noodles-being-served-from-a-cup-37192356/
+- cola-bottle.jpg: https://www.pexels.com/photo/coca-cola-zero-bottle-on-white-surface-4113630/
+- milk-full-cream.jpg: https://www.pexels.com/photo/shelves-with-various-milk-boxes-7451957/
+- yogurt-cup.jpg: https://www.pexels.com/photo/close-up-photo-of-ice-cream-cup-1819711/
+- margarine.jpg: https://www.pexels.com/photo/butter-on-a-wooden-plate-7966386/
+- flour.jpg: https://www.pexels.com/photo/paper-bag-of-wheat-flour-with-stainless-scoop-6287223/
+- salt.jpg: https://www.pexels.com/photo/himalayan-salt-in-a-small-brown-pouch-6705625/
+- sardines.jpg: https://www.pexels.com/photo/canned-fish-in-yellow-container-7488449/
+- chocolate-wafer.jpg: https://www.pexels.com/photo/close-up-of-chocolate-bars-on-white-studio-background-8794270/
+- toilet-tissue.jpg: https://www.pexels.com/photo/red-toilet-paper-roll-3964139/
+- floor-cleaner.jpg: https://www.pexels.com/photo/bottle-of-cleaning-product-on-table-5217898/
+- aa-batteries.jpg: https://www.pexels.com/photo/close-up-shot-of-black-and-yellow-batteries-6015268/
+- honey.jpg: https://www.pexels.com/photo/honey-jar-with-honeycomb-design-label-and-honey-dipper-30666803/
+- dish-sponge.jpg: https://www.pexels.com/photo/orange-square-on-white-surface-4440528/
+- peanut-butter.jpg: https://www.pexels.com/photo/glass-jar-of-peanut-butter-on-wooden-cutting-board-5149348/
+- product-default.jpg: https://www.pexels.com/photo/assortment-of-snacks-on-a-shop-shelf-38127820/
+
+See each source for its image license and attribution terms.

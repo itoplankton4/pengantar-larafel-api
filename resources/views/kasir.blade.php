@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f2f4f7">
-    <title>Kasir | Toko Retail Vitoxx</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Kasir | VitoMart</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
 <body>
-<div class="pos-shell">
+<div class="pos-shell" data-sale-url="{{ route('sales.store') }}">
     <header class="topbar">
         <div>
-            <h1 class="store-name">TOKO RETAIL VITOXX</h1>
-            <div class="store-meta">Jl. Contoh No. 123 · Jember · Telp. 0812-xxxx-xxxx</div>
+            <h1 class="store-name">{{ strtoupper($store->name ?? 'VITOMART') }}</h1>
+            <div class="store-meta">{{ $store->address ?? 'Jl. Contoh No. 123' }} · {{ $store->city ?? 'Jember' }} · Telp. {{ $store->phone ?? '0812-xxxx-xxxx' }}</div>
+        </div>
+        <div class="header-actions">
+            @if(Auth::user()?->role === 'admin')
+                <a class="profile-back secondary" href="{{ route('admin.dashboard') }}">Dashboard Admin</a>
+            @endif
+            <a class="profile-back" href="{{ route('logout.confirm') }}">Keluar</a>
         </div>
         <div class="transaction-meta">
             No. Transaksi
@@ -25,12 +32,43 @@
     <main class="work-area">
         <section class="left-column" aria-label="Barang dan keranjang belanja">
             <div class="card">
-                <div class="card-heading">Tambah Barang</div>
+                <div class="card-heading">
+                    <span>Katalog Produk</span>
+                    <span class="product-count" id="productCount">0 Produk</span>
+                </div>
                 <div class="card-body">
+                    <details class="product-editor">
+                        <summary>Tambah produk manual</summary>
+                        <form class="product-form" id="productForm">
+                            <div class="product-form-grid">
+                                <div class="field">
+                                    <label for="newProductName">Nama produk</label>
+                                    <input class="form-control" id="newProductName" type="text" maxlength="80" required>
+                                </div>
+                                <div class="field">
+                                    <label for="newProductPrice">Harga (Rp)</label>
+                                    <input class="form-control" id="newProductPrice" type="number" min="1" step="1" required>
+                                </div>
+                                <div class="field">
+                                    <label for="newProductCode">Kode produk</label>
+                                    <input class="form-control" id="newProductCode" type="text" maxlength="20" placeholder="Otomatis jika kosong">
+                                </div>
+                                <div class="field">
+                                    <label for="newProductBarcode">Barcode</label>
+                                    <input class="form-control" id="newProductBarcode" type="text" maxlength="40" placeholder="Opsional">
+                                </div>
+                                <div class="field">
+                                    <label for="newProductImage">URL foto</label>
+                                    <input class="form-control" id="newProductImage" type="url" placeholder="Opsional">
+                                </div>
+                            </div>
+                            <button class="button button-primary" type="submit">Simpan Produk</button>
+                            <p class="product-form-status" id="productFormStatus" role="status" aria-live="polite"></p>
+                        </form>
+                    </details>
                     <div class="search-row">
                         <div class="search-wrap">
-                            <input class="search-input" type="search" id="searchProduct" placeholder="Cari nama barang / kode / barcode..." autocomplete="off" aria-label="Cari barang">
-                            <div class="product-results" id="productResults" role="listbox"></div>
+                            <input class="search-input" type="search" id="searchProduct" placeholder="Cari produk, kode, atau barcode..." autocomplete="off" aria-label="Cari barang">
                         </div>
                         <button class="button button-primary" id="searchButton" type="button">Cari</button>
                     </div>
@@ -49,11 +87,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="product-results" id="productResults" aria-label="Daftar produk"></div>
             </div>
 
             <div class="card">
                 <div class="card-heading">
-                    <span>Keranjang Belanja</span>
+                    <span>Keranjang Checkout</span>
                     <span class="item-count" id="itemCount">0 Item</span>
                 </div>
                 <div class="table-scroll">
@@ -65,13 +104,22 @@
                                 <th class="text-right">Harga</th>
                                 <th class="text-center">Qty</th>
                                 <th class="text-right">Subtotal</th>
-                                <th class="text-center column-action"></th>
+                                <th class="text-center column-action">Aksi</th>
                             </tr>
                         </thead>
                         <tbody id="cartBody">
                             <tr><td colspan="6" class="empty-cart">Keranjang masih kosong.<br>Silakan cari atau scan barang.</td></tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class="card saved-cart-card">
+                <div class="card-heading">
+                    <span>Simpan untuk Nanti</span>
+                    <span class="item-count" id="savedItemCount">0 Produk</span>
+                </div>
+                <div class="saved-cart-list" id="savedCartList" aria-live="polite">
+                    <div class="saved-cart-empty">Belum ada produk yang disimpan.</div>
                 </div>
             </div>
         </section>
