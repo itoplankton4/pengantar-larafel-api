@@ -28,6 +28,37 @@ class ProductApiTest extends TestCase
 
         $response->assertOk();
         $response->assertJsonFragment(['name' => 'Indomie Jumbo']);
+        $response->assertJsonFragment(['name' => 'Kunci Pas Ring 10 mm']);
+        $response->assertJsonFragment([
+            'name' => 'Kunci Pas Ring 10 mm',
+            'image' => '/images/products/motorcycle/tools.jpg',
+        ]);
+        $response->assertJsonFragment([
+            'name' => 'Busi Standar',
+            'image' => '/images/products/motorcycle/spark-plug.svg',
+        ]);
+        $response->assertJsonFragment([
+            'name' => 'Jas Hujan Motor',
+            'image' => '/images/products/motorcycle/rain-suit.svg',
+        ]);
+        $response->assertJsonFragment([
+            'name' => 'Aki Motor 12V',
+            'image' => '/images/products/motorcycle/motorcycle-battery.svg',
+        ]);
+        $response->assertJsonFragment([
+            'name' => 'Helm Full Face Grafis',
+            'code' => 'BRG047',
+            'image' => '/images/products/motorcycle/helmet-photo.jpg',
+        ]);
+        $response->assertJsonMissing([
+            'name' => 'Knalpot Motor Universal',
+            'code' => 'BRG046',
+        ]);
+        $response->assertJsonFragment([
+            'name' => 'Velg Racing Motor Set',
+            'code' => 'BRG048',
+            'image' => '/images/products/motorcycle/motorcycle-rims.svg',
+        ]);
     }
 
     public function test_selling_product_reduces_stock(): void

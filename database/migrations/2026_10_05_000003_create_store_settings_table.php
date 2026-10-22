@@ -12,8 +12,8 @@ return new class extends Migration
         Schema::create('store_settings', function (Blueprint $table) {
             $table->id();
             $table->string('name')->default('VitoMart');
-            $table->string('address')->default('Jl. Contoh No. 123');
-            $table->string('city')->default('Jember');
+            $table->string('address')->default('Jl.elltari seba');
+            $table->string('city')->default('menia');
             $table->string('phone')->default('0812-xxxx-xxxx');
             $table->timestamps();
         });
@@ -21,8 +21,8 @@ return new class extends Migration
         DB::table('store_settings')->insert([
             [
                 'name' => 'VitoMart',
-                'address' => 'Jl. Contoh No. 123',
-                'city' => 'Jember',
+                'address' => 'Jl. elltari seba',
+                'city' => 'menia',
                 'phone' => '0812-xxxx-xxxx',
             ],
         ]);

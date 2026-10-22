@@ -1,104 +1,178 @@
 import './bootstrap';
 
 const products = [
-        { id: 1, code: 'BRG001', barcode: '899123456001', name: 'Indomie Goreng', price: 3500, stock: 40 },
-        { id: 2, code: 'BRG002', barcode: '899123456002', name: 'Aqua 600ml', price: 4000, stock: 50 },
-        { id: 3, code: 'BRG003', barcode: '899123456003', name: 'Teh Botol Sosro', price: 5000, stock: 35 },
-        { id: 4, code: 'BRG004', barcode: '899123456004', name: 'Beras 5 Kg', price: 75000, stock: 20 },
-        { id: 5, code: 'BRG005', barcode: '899123456005', name: 'Minyak Goreng 1 Liter', price: 18000, stock: 25 },
-        { id: 6, code: 'BRG006', barcode: '899123456006', name: 'Gula Pasir 1 Kg', price: 17000, stock: 30 },
-        { id: 7, code: 'BRG007', barcode: '899123456007', name: 'Mie Sedaap Goreng', price: 3500, stock: 45 },
-        { id: 8, code: 'BRG008', barcode: '899123456008', name: 'Air Mineral 1.5 Liter', price: 6000, stock: 55 },
-        { id: 9, code: 'BRG009', barcode: '899123456009', name: 'Le Minerale 600ml', price: 4000, stock: 40 },
-        { id: 10, code: 'BRG010', barcode: '899123456010', name: 'Teh Pucuk Harum 350ml', price: 4000, stock: 38 },
-        { id: 11, code: 'BRG011', barcode: '899123456011', name: 'Kopi Kapal Api', price: 1500, stock: 60 },
-        { id: 12, code: 'BRG012', barcode: '899123456012', name: 'Susu UHT Cokelat 250ml', price: 6500, stock: 32 },
-        { id: 13, code: 'BRG013', barcode: '899123456013', name: 'Roti Tawar', price: 16000, stock: 18 },
-        { id: 14, code: 'BRG014', barcode: '899123456014', name: 'Telur Ayam 1 Kg', price: 28000, stock: 22 },
-        { id: 15, code: 'BRG015', barcode: '899123456015', name: 'Sabun Mandi', price: 4000, stock: 36 },
-        { id: 16, code: 'BRG016', barcode: '899123456016', name: 'Pasta Gigi', price: 12000, stock: 24 },
-        { id: 17, code: 'BRG017', barcode: '899123456017', name: 'Tisu Wajah', price: 8000, stock: 28 },
-        { id: 18, code: 'BRG018', barcode: '899123456018', name: 'Keripik Kentang', price: 9500, stock: 34 },
-        { id: 19, code: 'BRG019', barcode: '899123456019', name: 'Biskuit Cokelat', price: 8500, stock: 31 },
-        { id: 20, code: 'BRG020', barcode: '899123456020', name: 'Kecap Manis', price: 13500, stock: 27 },
-        { id: 21, code: 'BRG021', barcode: '899123456021', name: 'Saus Sambal', price: 11000, stock: 29 },
-        { id: 22, code: 'BRG022', barcode: '899123456022', name: 'Sabun Cuci Piring 750ml', price: 12000, stock: 26 },
-        { id: 23, code: 'BRG023', barcode: '899123456023', name: 'Deterjen Bubuk 1 Kg', price: 18000, stock: 21 },
-        { id: 24, code: 'BRG024', barcode: '899123456024', name: 'Shampoo Sachet', price: 1000, stock: 70 },
-        { id: 25, code: 'BRG025', barcode: '899123456025', name: 'Susu Kental Manis 370ml', price: 13000, stock: 33 },
-        { id: 26, code: 'BRG026', barcode: '899123456026', name: 'Kopi Sachet', price: 1500, stock: 68 },
-        { id: 27, code: 'BRG027', barcode: '899123456027', name: 'Air Galon Isi Ulang', price: 7000, stock: 18 },
-        { id: 28, code: 'BRG028', barcode: '899123456028', name: 'Mi Kuah Ayam Bawang', price: 3500, stock: 42 },
-        { id: 29, code: 'BRG029', barcode: '899123456029', name: 'Minuman Cola 390ml', price: 6000, stock: 39 },
-        { id: 30, code: 'BRG030', barcode: '899123456030', name: 'Susu UHT Full Cream 1 Liter', price: 19000, stock: 20 },
-        { id: 31, code: 'BRG031', barcode: '899123456031', name: 'Yogurt Stroberi 180ml', price: 8000, stock: 25 },
-        { id: 32, code: 'BRG032', barcode: '899123456032', name: 'Margarin 200g', price: 7000, stock: 30 },
-        { id: 33, code: 'BRG033', barcode: '899123456033', name: 'Tepung Terigu 1 Kg', price: 12000, stock: 23 },
-        { id: 34, code: 'BRG034', barcode: '899123456034', name: 'Garam Dapur 500g', price: 4000, stock: 36 },
-        { id: 35, code: 'BRG035', barcode: '899123456035', name: 'Sarden Kaleng 155g', price: 14000, stock: 24 },
-        { id: 36, code: 'BRG036', barcode: '899123456036', name: 'Wafer Cokelat 140g', price: 9000, stock: 28 },
-        { id: 37, code: 'BRG037', barcode: '899123456037', name: 'Tisu Toilet 10 Roll', price: 25000, stock: 17 },
-        { id: 38, code: 'BRG038', barcode: '899123456038', name: 'Pembersih Lantai 800ml', price: 14000, stock: 22 },
-        { id: 39, code: 'BRG039', barcode: '899123456039', name: 'Baterai AA 2 pcs', price: 15000, stock: 19 },
-        { id: 40, code: 'BRG040', barcode: '899123456040', name: 'Madu Murni 250g', price: 28000, stock: 12 },
-        { id: 41, code: 'BRG041', barcode: '899123456041', name: 'Spons Cuci Piring 2 pcs', price: 5000, stock: 35 },
-        { id: 42, code: 'BRG042', barcode: '899123456042', name: 'Selai Kacang 340g', price: 28000, stock: 14 },
-        { id: 43, code: 'ALF-043', barcode: '899123456043', name: 'Kue Ulang Tahun', price: 120000, stock: 8, image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80' },
-        { id: 44, code: 'ALF-044', barcode: '899123456044', name: 'Ayam Geprek', price: 22000, stock: 15, image: 'https://images.unsplash.com/photo-1562967916-eb82221dfb92?auto=format&fit=crop&w=900&q=80' },
-        { id: 45, code: 'ALF-045', barcode: '899123456045', name: 'Ikan Bakar', price: 25000, stock: 10, image: 'https://images.unsplash.com/photo-1534939561126-855b8675edd7?auto=format&fit=crop&w=900&q=80' },
-    ];
-    const productImages = [
-        'indomie-goreng.jpg', 'aqua-600.jpg', 'teh-botol-sosro.jpg', 'rice.jpg', 'oil.jpg', 'sugar.jpg', 'mie-sedaap.jpg',
-        'water.jpg', 'le-minerale.jpg', 'teh-pucuk.jpg', 'kopi-kapal-api.jpg', 'cokelat-uht.jpg', 'bread.jpg', 'eggs.jpg',
-        'soap.jpg', 'toothpaste.jpg', 'tissue.jpg', 'chips.jpg', 'cookies.jpg', 'soy-sauce.jpg',
-        'chili-sauce.jpg', 'dish-soap.jpg', 'detergent.jpg', 'shampoo.jpg', 'susu-kental-manis.jpg', 'kopi-sachet.jpg', 'gallon.jpg',
-        'noodle-soup.jpg', 'cola-bottle.jpg', 'milk-full-cream.jpg', 'yogurt-cup.jpg', 'margarine.jpg', 'flour.jpg', 'salt.jpg',
-        'sardines.jpg', 'chocolate-wafer.jpg', 'toilet-tissue.jpg', 'floor-cleaner.jpg', 'aa-batteries.jpg', 'honey.jpg', 'dish-sponge.jpg', 'peanut-butter.jpg',
-        'kue-ulang-tahun.svg', 'ayam-geprek.svg', 'ikan-bakar.svg',
-    ];
-    const realisticProductImages = {
-        43: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80',
-        44: 'https://images.unsplash.com/photo-1562967916-eb82221dfb92?auto=format&fit=crop&w=900&q=80',
-        45: 'https://images.unsplash.com/photo-1534939561126-855b8675edd7?auto=format&fit=crop&w=900&q=80',
-    };
-    const realisticFruitVegetableImages = [
-        { keywords: ['apel', 'apple'], image: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=900&q=80' },
-        { keywords: ['pisang', 'banana'], image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=900&q=80' },
-        { keywords: ['jeruk', 'orange'], image: 'https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=900&q=80' },
-        { keywords: ['mangga', 'mango'], image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=900&q=80' },
-        { keywords: ['tomat', 'tomato'], image: 'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=900&q=80' },
-        { keywords: ['wortel', 'carrot'], image: 'https://images.unsplash.com/photo-1447175008436-054170c2e979?auto=format&fit=crop&w=900&q=80' },
-        { keywords: ['bayam', 'spinach'], image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=900&q=80' },
-        { keywords: ['cabai', 'chili', 'pepper'], image: 'https://images.unsplash.com/photo-1582515073490-39981397c445?auto=format&fit=crop&w=900&q=80' },
-        { keywords: ['sayur', 'vegetable', 'salad', 'brokoli', 'kale'], image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80' },
+        { id: 1, code: 'BRG001', barcode: '899123456001', name: 'Kunci Pas Ring 10 mm', price: 35000, stock: 40 },
+        { id: 2, code: 'BRG002', barcode: '899123456002', name: 'Kunci Pas Ring 12 mm', price: 42000, stock: 50 },
+        { id: 3, code: 'BRG003', barcode: '899123456003', name: 'Set Kunci L 9 pcs', price: 65000, stock: 35 },
+        { id: 4, code: 'BRG004', barcode: '899123456004', name: 'Obeng Plus', price: 18000, stock: 20 },
+        { id: 5, code: 'BRG005', barcode: '899123456005', name: 'Obeng Minus', price: 18000, stock: 25 },
+        { id: 6, code: 'BRG006', barcode: '899123456006', name: 'Tang Kombinasi', price: 45000, stock: 30 },
+        { id: 7, code: 'BRG007', barcode: '899123456007', name: 'Tang Potong', price: 40000, stock: 45 },
+        { id: 8, code: 'BRG008', barcode: '899123456008', name: 'Tang Jepit', price: 35000, stock: 55 },
+        { id: 9, code: 'BRG009', barcode: '899123456009', name: 'Kunci Inggris 8 inci', price: 85000, stock: 40 },
+        { id: 10, code: 'BRG010', barcode: '899123456010', name: 'Kunci Busi 21 mm', price: 25000, stock: 38 },
+        { id: 11, code: 'BRG011', barcode: '899123456011', name: 'Busi Standar', price: 28000, stock: 60 },
+        { id: 12, code: 'BRG012', barcode: '899123456012', name: 'Oli Mesin 10W-40 0.8L', price: 65000, stock: 32 },
+        { id: 13, code: 'BRG013', barcode: '899123456013', name: 'Oli Gardan', price: 18000, stock: 18 },
+        { id: 14, code: 'BRG014', barcode: '899123456014', name: 'Kampas Rem Depan', price: 45000, stock: 22 },
+        { id: 15, code: 'BRG015', barcode: '899123456015', name: 'Kampas Rem Belakang', price: 38000, stock: 36 },
+        { id: 16, code: 'BRG016', barcode: '899123456016', name: 'Rantai Motor', price: 120000, stock: 24 },
+        { id: 17, code: 'BRG017', barcode: '899123456017', name: 'Gear Set Motor', price: 180000, stock: 28 },
+        { id: 18, code: 'BRG018', barcode: '899123456018', name: 'Ban Dalam 14 inci', price: 70000, stock: 34 },
+        { id: 19, code: 'BRG019', barcode: '899123456019', name: 'Peralatan Tambal Ban', price: 18000, stock: 31 },
+        { id: 20, code: 'BRG020', barcode: '899123456020', name: 'Pompa Angin Mini', price: 95000, stock: 27 },
+        { id: 21, code: 'BRG021', barcode: '899123456021', name: 'Aki Motor 12V', price: 350000, stock: 29 },
+        { id: 22, code: 'BRG022', barcode: '899123456022', name: 'Lampu LED Motor', price: 65000, stock: 26 },
+        { id: 23, code: 'BRG023', barcode: '899123456023', name: 'Spion Motor Universal', price: 55000, stock: 21 },
+        { id: 24, code: 'BRG024', barcode: '899123456024', name: 'Handle Grip Motor', price: 30000, stock: 70 },
+        { id: 25, code: 'BRG025', barcode: '899123456025', name: 'Kabel Gas Motor', price: 25000, stock: 33 },
+        { id: 26, code: 'BRG026', barcode: '899123456026', name: 'Kabel Rem Motor', price: 22000, stock: 68 },
+        { id: 27, code: 'BRG027', barcode: '899123456027', name: 'Filter Udara Motor', price: 35000, stock: 18 },
+        { id: 28, code: 'BRG028', barcode: '899123456028', name: 'Filter Oli Motor', price: 28000, stock: 42 },
+        { id: 29, code: 'BRG029', barcode: '899123456029', name: 'Kampas Kopling', price: 120000, stock: 39 },
+        { id: 30, code: 'BRG030', barcode: '899123456030', name: 'Per Kopling Motor', price: 45000, stock: 20 },
+        { id: 31, code: 'BRG031', barcode: '899123456031', name: 'Bearing Roda Motor', price: 38000, stock: 25 },
+        { id: 32, code: 'BRG032', barcode: '899123456032', name: 'Seal Shock Depan', price: 25000, stock: 30 },
+        { id: 33, code: 'BRG033', barcode: '899123456033', name: 'Minyak Rem', price: 30000, stock: 23 },
+        { id: 34, code: 'BRG034', barcode: '899123456034', name: 'Cairan Pendingin Radiator', price: 45000, stock: 36 },
+        { id: 35, code: 'BRG035', barcode: '899123456035', name: 'Pembersih Rantai Motor', price: 40000, stock: 24 },
+        { id: 36, code: 'BRG036', barcode: '899123456036', name: 'Pelumas Rantai Motor', price: 55000, stock: 28 },
+        { id: 37, code: 'BRG037', barcode: '899123456037', name: 'Lap Microfiber', price: 18000, stock: 17 },
+        { id: 38, code: 'BRG038', barcode: '899123456038', name: 'Sikat Rantai Motor', price: 22000, stock: 22 },
+        { id: 39, code: 'BRG039', barcode: '899123456039', name: 'Toolkit Darurat Motor', price: 150000, stock: 19 },
+        { id: 40, code: 'BRG040', barcode: '899123456040', name: 'Multimeter Digital', price: 95000, stock: 12 },
+        { id: 41, code: 'BRG041', barcode: '899123456041', name: 'Sarung Tangan Mekanik', price: 60000, stock: 35 },
+        { id: 42, code: 'BRG042', barcode: '899123456042', name: 'Jas Hujan Motor', price: 85000, stock: 14 },
+        { id: 43, code: 'ALF-043', barcode: '899123456043', name: 'Cover Motor', price: 120000, stock: 8 },
+        { id: 44, code: 'ALF-044', barcode: '899123456044', name: 'Busi Iridium', price: 75000, stock: 15 },
+        { id: 45, code: 'ALF-045', barcode: '899123456045', name: 'Klakson Motor', price: 55000, stock: 10 },
+        { id: 47, code: 'BRG047', barcode: '899123456047', name: 'Helm Full Face Grafis', price: 450000, stock: 8 },
+        { id: 48, code: 'BRG048', barcode: '899123456048', name: 'Velg Racing Motor Set', price: 650000, stock: 8 },
     ];
     const customProductStorageKey = 'vitomart-custom-products';
-    const defaultProductImage = '/images/products/product-default.jpg';
+    const appUrl = document.querySelector('meta[name="app-url"]')?.content || '';
+    const productImageBase = document.querySelector('meta[name="product-image-base"]')?.content || '/images/products/motorcycle';
+    const defaultProductImage = document.querySelector('meta[name="default-product-image"]')?.content || '/images/products/product-default.jpg';
+    const productPhotos = {
+        1: 'combination-wrench-photo.jpg',
+        2: 'wrench-set-photo.jpg',
+        3: 'hex-key-photo.jpg',
+        4: 'screwdrivers-photo.jpg',
+        5: 'flathead-screwdriver-photo.jpg',
+        6: 'needle-pliers-photo.jpg',
+        7: 'cutting-pliers-photo.jpg',
+        11: 'spark-plug-photo.jpg',
+        12: 'engine-oil.jpg',
+        14: 'brake-pads-photo.jpg',
+        16: 'rear-wheel-chain.jpg',
+        17: 'sprockets-photo.jpg',
+        21: 'battery-photo.jpg',
+        23: 'motorcycle-mirror.jpg',
+        27: 'air-filter-photo.jpg',
+        35: 'chain-lubricant.jpg',
+        39: 'tools.jpg',
+        47: 'helmet-photo.jpg',
+        48: 'motorcycle-rims.svg',
+    };
+    const productIllustrations = {
+        1: ['wrench-10', '10 mm'],
+        2: ['wrench-12', '12 mm'],
+        3: ['hex-keys', '9 pcs'],
+        4: ['screwdriver-plus', '+'],
+        5: ['screwdriver-minus', '-'],
+        6: ['pliers', 'kombinasi'],
+        7: ['cutters', 'potong'],
+        8: ['long-pliers', 'jepit'],
+        9: ['adjustable-wrench', '8 in'],
+        10: ['spark-socket', '21 mm'],
+        13: ['oil-bottle', 'gardan'],
+        15: ['brake-pad-rear', 'belakang'],
+        18: ['inner-tube', '14 in'],
+        19: ['patch-kit', 'tambal ban'],
+        20: ['air-pump', 'mini'],
+        22: ['headlight', 'LED'],
+        24: ['grip', 'handle'],
+        25: ['throttle-cable', 'gas'],
+        26: ['brake-cable', 'rem'],
+        28: ['oil-filter', 'oli'],
+        29: ['clutch', 'kampas'],
+        30: ['spring', 'kopling'],
+        31: ['bearing', 'roda'],
+        32: ['seal', 'shock'],
+        33: ['fluid', 'minyak rem'],
+        34: ['coolant', 'radiator'],
+        36: ['spray', 'pelumas'],
+        37: ['cloth', 'microfiber'],
+        38: ['chain-brush', 'rantai'],
+        40: ['multimeter', 'digital'],
+        41: ['glove', 'mekanik'],
+        42: ['rain-suit', 'jas hujan'],
+        43: ['motorcycle-cover', 'cover'],
+        44: ['iridium-plug', 'iridium'],
+        45: ['horn', 'klakson'],
+    };
+    const productShapes = {
+        'wrench-10': '<path d="M216 84h80v45h-25l-20-20-21 20h-14zM230 127h52v220h-52z" fill="#548b83"/><path d="m216 84-37-34 20-20 57 58M296 84l37-34-20-20-57 58" fill="none" stroke="#53696c" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/><path d="M237 147h38" stroke="#d5e1dc" stroke-width="8" stroke-linecap="round"/>',
+        'wrench-12': '<path d="M174 167a65 65 0 0 0 83 82l95 95-36 36-95-95a65 65 0 0 0-82-83l43 43-42 42-43-43a65 65 0 0 0 77 82l91 91" fill="none" stroke="#53696c" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/><path d="M169 159l42 43-42 42-43-42a65 65 0 0 1 43-43Z" fill="#d95743"/>',
+        'hex-keys': '<path d="M174 182v118h80M224 148v121h76M279 168v111h65M327 190v90h54" fill="none" stroke="#647d80" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="174" cy="182" r="12" fill="#d95743"/><circle cx="224" cy="148" r="12" fill="#d95743"/><circle cx="279" cy="168" r="12" fill="#d95743"/>',
+        'screwdriver-plus': '<path d="M251 130h40v82l-19 22v124h-28V234l-19-22v-82h26Z" fill="#d95743"/><path d="M240 354h50v27h-50z" fill="#53696c"/><path d="M270 236v114" stroke="#d7e0dd" stroke-width="6"/><path d="M256 380v31M242 395h28" stroke="#d95743" stroke-width="9" stroke-linecap="round"/>',
+        'screwdriver-minus': '<path d="M251 130h40v82l-19 22v124h-28V234l-19-22v-82h26Z" fill="#548b83"/><path d="M240 354h50v27h-50z" fill="#53696c"/><path d="M270 236v114" stroke="#d7e0dd" stroke-width="6"/><path d="M239 396h34" stroke="#548b83" stroke-width="10" stroke-linecap="round"/>',
+        pliers: '<path d="M207 151 252 250 208 363M305 151 261 250 306 363" fill="none" stroke="#596f72" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/><circle cx="256" cy="250" r="25" fill="#d95743"/><path d="m207 151-27-43 59 30 17 58M305 151l27-43-59 30-17 58" fill="#98aaa7" stroke="#596f72" stroke-width="12" stroke-linejoin="round"/>',
+        cutters: '<path d="m208 162 49 95-41 112M304 162l-49 95 41 112" fill="none" stroke="#53696c" stroke-width="25" stroke-linecap="round"/><path d="m208 162-51-53 89 27 21 80M304 162l51-53-89 27-21 80" fill="#d95743" stroke="#53696c" stroke-width="10" stroke-linejoin="round"/><circle cx="257" cy="256" r="21" fill="#e6b953"/>',
+        'long-pliers': '<path d="m207 169 49 91-48 117M305 169l-49 91 48 117" fill="none" stroke="#53696c" stroke-width="20" stroke-linecap="round"/><path d="m207 169-16-93 60 107M305 169l16-93-60 107" fill="#a3b3b0" stroke="#53696c" stroke-width="11" stroke-linejoin="round"/><circle cx="256" cy="260" r="19" fill="#d95743"/>',
+        'adjustable-wrench': '<path d="M168 145a74 74 0 0 0 87 91l105 105-42 42-105-105a74 74 0 0 0-82-88l47 47-43 43-47-47a74 74 0 0 0 80 86l100 100" fill="none" stroke="#586e71" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/><path d="m163 135 47 47-43 43-47-47a74 74 0 0 1 43-43Z" fill="#e3b84e"/>',
+        'spark-socket': '<path d="M213 117h86v47h-14v67h-58v-67h-14z" fill="#687d7f"/><path d="M228 231h56v83h-56z" fill="#aebcba"/><path d="M239 314h34v45h-34zM245 359h22v39h-22z" fill="#53696c"/><path d="M244 134h24M236 249h40" stroke="#d9e2df" stroke-width="8" stroke-linecap="round"/>',
+        'spark-plug': '<path d="M219 121a25 25 0 0 1 25-25h24a25 25 0 0 1 25 25v40h-74z" fill="#f2f4ef" stroke="#718381" stroke-width="8"/><path d="M214 162h84v91h-84z" fill="#eef1ed" stroke="#718381" stroke-width="8"/><path d="M214 185h84M214 207h84M214 229h84" stroke="#aebbb8" stroke-width="7"/><path d="M200 251h112v34H200z" fill="#d95743"/><path d="M217 285h78l-12 72h-54z" fill="#9baaa7"/><path d="M236 357h40v41h-40zM247 398h18v31h-18z" fill="#53696c"/><path d="M256 429v24h19" stroke="#e0af48" stroke-width="8" stroke-linecap="round"/>',
+        'iridium-plug': '<path d="M222 118a23 23 0 0 1 23-23h22a23 23 0 0 1 23 23v39h-68z" fill="#53696c"/><path d="M214 157h84v94h-84z" fill="#d9e1dc" stroke="#738481" stroke-width="8"/><path d="M214 181h84M214 207h84M214 231h84" stroke="#91a19d" stroke-width="7"/><path d="M200 250h112v35H200z" fill="#8d6f99"/><path d="M217 285h78l-12 72h-54z" fill="#8b9996"/><path d="M234 357h44v43h-44z" fill="#e6bd55"/><path d="M246 400h20v31h-20z" fill="#53696c"/><path d="M256 431v22h23" stroke="#e6bd55" stroke-width="8" stroke-linecap="round"/>',
+        'oil-bottle': '<path d="M233 111h47v42l25 25v177a25 25 0 0 1-25 25h-48a25 25 0 0 1-25-25V178l26-25z" fill="#4d7270"/><path d="M232 105h49v22h-49z" fill="#d95743"/><path d="M222 240h70v73h-70z" fill="#f3f2e8"/><path d="M238 260h38M238 278h38M238 296h25" stroke="#d95743" stroke-width="8" stroke-linecap="round"/>',
+        'brake-pad-front': '<path d="M167 176h72v158h-72zM273 176h72v158h-72z" fill="#53696c"/><path d="M177 190h52v111h-52zM283 190h52v111h-52z" fill="#b96c48"/><path d="M174 322h59M280 322h59" stroke="#d4dedb" stroke-width="12" stroke-linecap="round"/><path d="M197 176v-22h42M315 176v-22h-42" stroke="#d95743" stroke-width="10" stroke-linejoin="round"/>',
+        'brake-pad-rear': '<path d="M177 320a103 103 0 1 1 158 0l-38-35a54 54 0 1 0-82 0l-38 35Z" fill="#53696c"/><path d="M190 296a83 83 0 1 1 132 0l-23-22a53 53 0 1 0-86 0l-23 22Z" fill="#b96c48"/><circle cx="256" cy="248" r="21" fill="#d7e1dd"/><path d="M179 318h44M289 318h44" stroke="#d95743" stroke-width="12" stroke-linecap="round"/>',
+        gear: '<circle cx="256" cy="256" r="118" fill="#788b89"/><circle cx="256" cy="256" r="88" fill="#eaf0ec"/><circle cx="256" cy="256" r="49" fill="#566c6f"/><circle cx="256" cy="256" r="20" fill="#eaf0ec"/><path d="M245 122h22v37h-22zM245 353h22v37h-22zM122 245h37v22h-37zM353 245h37v22h-37zM158 158l27 27-16 16-27-27zM343 343l27 27-16 16-27-27zM343 169l16-16 27 27-16 16zM142 343l27-27 16 16-27 27z" fill="#d95743"/>',
+        'inner-tube': '<circle cx="256" cy="252" r="119" fill="none" stroke="#303d3f" stroke-width="43"/><circle cx="256" cy="252" r="74" fill="#eaf0ec"/><path d="M362 323l26 25-20 27-30-5" fill="none" stroke="#d95743" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>',
+        'patch-kit': '<rect x="148" y="151" width="220" height="190" rx="18" fill="#53696c"/><rect x="164" y="169" width="188" height="150" rx="10" fill="#f3f2e8"/><path d="M207 133h102v37H207z" fill="#d95743"/><circle cx="216" cy="220" r="22" fill="#e1b44b"/><circle cx="279" cy="220" r="22" fill="#d95743"/><circle cx="242" cy="273" r="22" fill="#5e8d85"/><path d="M316 215v71" stroke="#53696c" stroke-width="12" stroke-linecap="round"/>',
+        'air-pump': '<rect x="222" y="129" width="68" height="226" rx="16" fill="#657a7d"/><path d="M202 129h108v28H202zM211 355h90v24h-90z" fill="#d95743"/><path d="M256 105v-31M256 74h57M289 74v-24" stroke="#53696c" stroke-width="12" stroke-linecap="round"/><path d="M289 50v-17" stroke="#d95743" stroke-width="9" stroke-linecap="round"/><path d="M239 174h34M239 197h34M239 220h34M239 243h34" stroke="#afbfbc" stroke-width="7"/>',
+        battery: '<rect x="152" y="153" width="208" height="205" rx="24" fill="#34484b"/><path d="M184 153v-35h48v35M280 153v-35h48v35" fill="#53696c"/><rect x="188" y="105" width="38" height="18" rx="5" fill="#d95743"/><rect x="284" y="105" width="38" height="18" rx="5" fill="#303d3f"/><rect x="180" y="195" width="152" height="111" rx="12" fill="#eaf0ec"/><text x="256" y="265" text-anchor="middle" font-size="47" font-weight="700" fill="#34484b">12V</text>',
+        headlight: '<path d="M170 198h78l32-37h49l38 42v108l-38 42h-49l-32-37h-78z" fill="#52696c"/><path d="M329 173c40 12 66 44 66 84s-26 72-66 84V173Z" fill="#efc34f"/><path d="M340 196c23 13 37 34 37 61s-14 48-37 61V196Z" fill="#fff1bf"/><path d="M192 221v76M215 221v76" stroke="#b6c4c1" stroke-width="9"/>',
+        grip: '<path d="M169 187h175a37 37 0 0 1 37 37v52a37 37 0 0 1-37 37H169z" fill="#34484b"/><path d="M188 199v102M210 196v108M232 196v108M254 196v108M276 196v108M298 196v108" stroke="#78908d" stroke-width="9"/><path d="M157 185h20v130h-20zM369 214h32v70h-32z" fill="#d95743"/>',
+        'throttle-cable': '<path d="M166 319c0-126 46-161 102-161 58 0 65 74 91 103 17 19 36 24 60 24" fill="none" stroke="#53696c" stroke-width="16" stroke-linecap="round"/><path d="M154 301h48v52h-48z" fill="#d95743"/><path d="M395 267h37v37h-37z" fill="#e4b84e"/><path d="M238 171h44M319 212h35" stroke="#b8c6c3" stroke-width="8" stroke-linecap="round"/>',
+        'brake-cable': '<path d="M169 175c102 8 62 183 171 187 35 1 50-25 50-54" fill="none" stroke="#53696c" stroke-width="17" stroke-linecap="round"/><path d="M151 153h53v43h-53z" fill="#548b83"/><path d="M369 300h42v42h-42z" fill="#d95743"/><path d="M178 175h33M328 354h37" stroke="#b8c6c3" stroke-width="8" stroke-linecap="round"/>',
+        'air-filter': '<path d="M179 161h154l34 38v134l-34 38H179l-34-38V199z" fill="#d95743"/><path d="M193 191v151M216 185v164M239 185v164M262 185v164M285 185v164M308 191v151" stroke="#f4df9b" stroke-width="13"/><path d="M149 214h218M149 319h218" stroke="#53696c" stroke-width="9"/>',
+        'oil-filter': '<path d="M202 137h108l24 29v159l-24 29H202l-24-29V166z" fill="#d95743"/><path d="M210 163v166M232 158v176M254 158v176M276 158v176M298 163v166" stroke="#f2f2e9" stroke-width="12"/><path d="M192 137h128M192 354h128" stroke="#53696c" stroke-width="12"/>',
+        clutch: '<circle cx="256" cy="250" r="115" fill="#677c7f"/><circle cx="256" cy="250" r="83" fill="#d95743"/><circle cx="256" cy="250" r="54" fill="#eaf0ec"/><circle cx="256" cy="250" r="29" fill="#53696c"/><circle cx="256" cy="250" r="10" fill="#eaf0ec"/><path d="M256 135v34M256 331v34M141 250h34M337 250h34M174 168l24 24M314 308l24 24M338 168l-24 24M198 308l-24 24" stroke="#eaf0ec" stroke-width="12"/>',
+        spring: '<path d="M177 151h158M177 362h158" stroke="#53696c" stroke-width="20" stroke-linecap="round"/><path d="M256 151l-72 26 144 27-144 27 144 27-144 27 144 27-72 50" fill="none" stroke="#d95743" stroke-width="18" stroke-linejoin="round"/>',
+        bearing: '<circle cx="256" cy="250" r="116" fill="#677c7f"/><circle cx="256" cy="250" r="83" fill="#eaf0ec"/><circle cx="256" cy="250" r="47" fill="#53696c"/><circle cx="256" cy="250" r="22" fill="#eaf0ec"/><circle cx="256" cy="165" r="11" fill="#d95743"/><circle cx="316" cy="190" r="11" fill="#d95743"/><circle cx="341" cy="250" r="11" fill="#d95743"/><circle cx="316" cy="310" r="11" fill="#d95743"/><circle cx="256" cy="335" r="11" fill="#d95743"/><circle cx="196" cy="310" r="11" fill="#d95743"/><circle cx="171" cy="250" r="11" fill="#d95743"/><circle cx="196" cy="190" r="11" fill="#d95743"/>',
+        seal: '<circle cx="256" cy="250" r="116" fill="#334649"/><circle cx="256" cy="250" r="78" fill="#eaf0ec"/><circle cx="256" cy="250" r="57" fill="#8c9d99"/><circle cx="256" cy="250" r="35" fill="#eaf0ec"/><path d="M162 213l28 11M350 213l-28 11M162 287l28-11M350 287l-28-11" stroke="#d95743" stroke-width="12" stroke-linecap="round"/>',
+        fluid: '<path d="M218 116h70v45l25 24v158a24 24 0 0 1-24 24h-72a24 24 0 0 1-24-24V185l25-24z" fill="#e5bb4e"/><path d="M217 107h73v25h-73z" fill="#53696c"/><path d="M203 239h100v72H203z" fill="#f2f1e8"/><path d="M224 260h58M224 282h38" stroke="#d95743" stroke-width="8" stroke-linecap="round"/>',
+        coolant: '<path d="M206 130h99v38l34 27v148a27 27 0 0 1-27 27h-112a27 27 0 0 1-27-27V195l33-27z" fill="#5d9384"/><path d="M206 119h99v28h-99z" fill="#d95743"/><path d="M190 244h132v77H190z" fill="#eaf0ec"/><path d="M213 267h85M213 289h60" stroke="#5d9384" stroke-width="9" stroke-linecap="round"/>',
+        spray: '<path d="M222 150h93v212h-93z" fill="#568c80"/><path d="M234 117h70v33h-70z" fill="#d95743"/><path d="M252 97h68v20h-68zM304 100h53v12h-53" fill="#53696c"/><path d="M238 195h61v77h-61z" fill="#eaf0ec"/><path d="M253 219h31M253 241h31" stroke="#d95743" stroke-width="8" stroke-linecap="round"/>',
+        cloth: '<path d="M146 202 300 139l66 167-155 64z" fill="#5c9290"/><path d="m146 202 89 104-24 64-89-111z" fill="#81aaa5"/><path d="m300 139 66 167-75-37-44-129z" fill="#3f7776"/><path d="m168 224 128-52M190 270l128-52M212 316l128-52" stroke="#cde0d9" stroke-width="8"/>',
+        'chain-brush': '<path d="M172 171c92-74 177 21 96 76-69 47-33 100 67 74" fill="none" stroke="#53696c" stroke-width="18" stroke-linecap="round"/><path d="M160 169h74v65h-74z" fill="#d95743"/><path d="M152 157v-25M169 157v-25M186 157v-25M203 157v-25M220 157v-25" stroke="#53696c" stroke-width="7"/><path d="M331 306h68v35h-68z" fill="#e2b64d"/>',
+        multimeter: '<path d="M194 109h124l31 34v213l-31 34H194l-31-34V143z" fill="#e4a940"/><rect x="191" y="151" width="130" height="76" rx="8" fill="#34484b"/><rect x="203" y="163" width="106" height="52" rx="5" fill="#d8e9d4"/><text x="256" y="198" text-anchor="middle" font-size="26" font-weight="700" fill="#45634f">12.6</text><circle cx="256" cy="285" r="39" fill="#53696c"/><circle cx="256" cy="285" r="22" fill="#eaf0ec"/><path d="m256 285 20-20" stroke="#d95743" stroke-width="7" stroke-linecap="round"/><path d="M220 359c0 29-36 31-55 51M292 359c0 29 36 31 55 51" fill="none" stroke="#53696c" stroke-width="8" stroke-linecap="round"/>',
+        glove: '<path d="M191 359 169 260l5-90c1-17 25-18 27-1l7 55 7-113c1-19 28-18 28 1v104l10-133c2-19 29-16 28 3l-5 130 16-100c3-18 29-12 25 7l-16 117 25-65c8-17 31-6 23 12l-34 101-49 51-79 20Z" fill="#53696c"/><path d="m194 300 119-24" stroke="#d95743" stroke-width="13" stroke-linecap="round"/>',
+        'rain-suit': '<path d="m199 115 57-25 57 25 50 77-44 23-23-39v146H216V176l-23 39-44-23z" fill="#e4b943" stroke="#957c34" stroke-width="9" stroke-linejoin="round"/><path d="M256 115v182M216 207h80" stroke="#f6e8b4" stroke-width="8"/><path d="M216 319h80l-10 67h-53z" fill="#34484b"/>',
+        'motorcycle-cover': '<circle cx="173" cy="337" r="39" fill="#34484b"/><circle cx="338" cy="337" r="39" fill="#34484b"/><path d="M132 334c7-58 47-92 96-106l32-58 57 3 28 60c34 15 53 48 53 101l-28 20H151z" fill="#637d80" stroke="#405a5e" stroke-width="9"/><path d="m225 229-37 71h143l-29-71z" fill="#96aaa6"/><path d="M150 329c54 15 157 15 218 0" stroke="#d6e0dc" stroke-width="8"/>',
+        horn: '<path d="M256 101c-66 0-111 50-111 114v112h222V215c0-64-45-114-111-114Z" fill="#53696c"/><circle cx="256" cy="218" r="82" fill="#e6ba50" stroke="#7c8d8b" stroke-width="12"/><circle cx="256" cy="218" r="48" fill="#f7e4a0"/><path d="M224 326v49h64v-49M224 375l-28 35M288 375l28 35" stroke="#53696c" stroke-width="14" stroke-linecap="round"/><path d="m156 157-34-19M356 157l34-19M143 216h-38M369 216h38" stroke="#d95743" stroke-width="8" stroke-linecap="round"/>',
+    };
 
-    function normalizeProductName(value = '') {
-        return String(value)
-            .toLowerCase('id')
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '');
+    function createProductIllustration(product, kind, detail) {
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><rect width="512" height="512" rx="36" fill="#edf3f0"/><ellipse cx="256" cy="407" rx="150" ry="22" fill="#d6e1dc"/><g>${productShapes[kind]}</g><rect x="150" y="420" width="212" height="38" rx="19" fill="#34484b"/><text x="256" y="446" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#fff">${escapeHtml(detail.toUpperCase())}</text></svg>`;
+        return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
     }
 
     function getProductImage(product) {
-        if (product && product.image) return product.image;
-        if (product && product.id && realisticProductImages[product.id]) return realisticProductImages[product.id];
+        const photo = product && productPhotos[Number(product.id)];
+        if (photo) return `${productImageBase}/${photo}`;
 
-        const productName = normalizeProductName(product?.name || '');
-        const fruitVegetableMatch = realisticFruitVegetableImages.find((entry) =>
-            entry.keywords.some((keyword) => productName.includes(normalizeProductName(keyword)))
-        );
-        if (fruitVegetableMatch) return fruitVegetableMatch.image;
+        const illustration = product && productIllustrations[Number(product.id)];
+        if (illustration) return createProductIllustration(product, illustration[0], illustration[1]);
 
-        const fallback = product && product.id ? productImages[product.id - 1] : null;
-        return fallback ? `/images/products/${fallback}` : defaultProductImage;
+        if (product && product.image) return product.image.startsWith('/') ? `${appUrl}${product.image}` : product.image;
+        return defaultProductImage;
     }
 
     async function loadProductsFromServer() {
         try {
-            const response = await fetch('/products', { headers: { Accept: 'application/json' } });
+            const response = await fetch(`${appUrl}/products`, { headers: { Accept: 'application/json' } });
             if (!response.ok) return;
             const serverProducts = await response.json();
             serverProducts.forEach((product) => {
@@ -111,7 +185,7 @@ const products = [
                         name: product.name,
                         price: Number(product.price),
                         stock: Number(product.stock || 0),
-                        image: product.image || defaultProductImage,
+                        image: product.image ? (product.image.startsWith('/') ? `${appUrl}${product.image}` : product.image) : defaultProductImage,
                     });
                 }
             });
@@ -175,6 +249,20 @@ const products = [
         return `TRX-${stamp}-${String(Math.floor(Math.random() * 900) + 100)}`;
     }
 
+    function handleProductImageErrors(container) {
+        container.querySelectorAll('.product-photo, .saved-cart-photo').forEach((image) => {
+            image.addEventListener('error', () => {
+                if (image.dataset.fallbackApplied) {
+                    image.removeAttribute('src');
+                    return;
+                }
+
+                image.dataset.fallbackApplied = 'true';
+                image.src = defaultProductImage;
+            });
+        });
+    }
+
     function renderProductResults(matches) {
         resultBox.innerHTML = matches.length ? matches.map((product) => {
             const image = getProductImage(product);
@@ -188,6 +276,7 @@ const products = [
                 </span>
             </button>`;
         }).join('') : '<div class="product-empty">Produk tidak ditemukan</div>';
+        handleProductImageErrors(resultBox);
         document.getElementById('productCount').textContent = `${matches.length} Produk`;
         resultBox.querySelectorAll('[data-product-id]').forEach((result) => {
             result.addEventListener('click', () => addToCart(Number(result.dataset.productId)));
@@ -273,6 +362,7 @@ const products = [
                 <div class="saved-cart-actions"><button class="restore-saved-button" type="button" data-restore-id="${item.id}">Checkout</button><button class="remove-button" type="button" aria-label="Hapus ${escapeHtml(item.name)} dari simpan nanti" data-delete-saved-id="${item.id}">×</button></div>
             </div>`;
         }).join('');
+        handleProductImageErrors(list);
         list.querySelectorAll('[data-restore-id]').forEach((button) => button.addEventListener('click', () => restoreSavedItem(Number(button.dataset.restoreId))));
         list.querySelectorAll('[data-delete-saved-id]').forEach((button) => button.addEventListener('click', () => deleteSavedItem(Number(button.dataset.deleteSavedId))));
     }

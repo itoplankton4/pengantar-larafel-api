@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="background" x1="30" y1="20" x2="480" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#282724"/>
+      <stop offset="1" stop-color="#090A0A"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="150" y1="150" x2="360" y2="350" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4F4F0"/>
+      <stop offset=".3" stop-color="#858987"/>
+      <stop offset=".52" stop-color="#F8F8F4"/>
+      <stop offset=".78" stop-color="#747876"/>
+      <stop offset="1" stop-color="#D5D7D3"/>
+    </linearGradient>
+    <linearGradient id="box" x1="22" y1="120" x2="150" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE62D"/>
+      <stop offset="1" stop-color="#D8AF00"/>
+    </linearGradient>
+    <g id="spoke">
+      <path d="M0 -59L5 -97" stroke="#B8BCB8" stroke-width="3" stroke-linecap="round"/>
+      <path d="M0 -63L2 -94" stroke="#FAFAF6" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <g id="wheel">
+      <circle r="103" fill="#141615" stroke="url(#metal)" stroke-width="13"/>
+      <circle r="91" fill="#181A19" stroke="#ECEEEA" stroke-width="3"/>
+      <g>
+        <use href="#spoke" transform="rotate(0)"/>
+        <use href="#spoke" transform="rotate(18)"/>
+        <use href="#spoke" transform="rotate(36)"/>
+        <use href="#spoke" transform="rotate(54)"/>
+        <use href="#spoke" transform="rotate(72)"/>
+        <use href="#spoke" transform="rotate(90)"/>
+        <use href="#spoke" transform="rotate(108)"/>
+        <use href="#spoke" transform="rotate(126)"/>
+        <use href="#spoke" transform="rotate(144)"/>
+        <use href="#spoke" transform="rotate(162)"/>
+        <use href="#spoke" transform="rotate(180)"/>
+        <use href="#spoke" transform="rotate(198)"/>
+        <use href="#spoke" transform="rotate(216)"/>
+        <use href="#spoke" transform="rotate(234)"/>
+        <use href="#spoke" transform="rotate(252)"/>
+        <use href="#spoke" transform="rotate(270)"/>
+        <use href="#spoke" transform="rotate(288)"/>
+        <use href="#spoke" transform="rotate(306)"/>
+        <use href="#spoke" transform="rotate(324)"/>
+        <use href="#spoke" transform="rotate(342)"/>
+      </g>
+      <circle r="31" fill="url(#metal)" stroke="#F7F8F4" stroke-width="3"/>
+      <circle r="13" fill="#202322" stroke="#D9DCD8" stroke-width="5"/>
+      <circle r="5" fill="#D8DAD6"/>
+    </g>
+  </defs>
+  <rect width="512" height="512" rx="34" fill="url(#background)"/>
+  <path d="M0 75L133 42V350L0 394V75Z" fill="url(#box)"/>
+  <path d="M0 75L36 57V379L0 394V75Z" fill="#F8D61A"/>
+  <path d="M24 183L105 164M24 199L105 180" stroke="#201F19" stroke-width="5" stroke-linecap="round"/>
+  <text x="25" y="235" fill="#25231B" font-family="Arial,sans-serif" font-size="17" font-weight="800" transform="rotate(-12 25 235)">RACING</text>
+  <text x="23" y="257" fill="#25231B" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing="1.2" transform="rotate(-12 23 257)">ALUMINUM WHEELS</text>
+  <ellipse cx="334" cy="195" rx="118" ry="20" fill="#000" opacity=".55"/>
+  <ellipse cx="304" cy="419" rx="136" ry="22" fill="#000" opacity=".65"/>
+  <g transform="translate(342 162) rotate(-8) scale(.9)">
+    <use href="#wheel"/>
+  </g>
+  <g transform="translate(293 361) rotate(6) scale(1.08)">
+    <use href="#wheel"/>
+  </g>
+  <g transform="translate(333 269) rotate(10)">
+    <path d="M-32 -13L0 -26L32 -13V13L0 26L-32 13V-13Z" fill="#141616" stroke="#F0F2ED" stroke-width="4"/>
+    <path d="M-20 -2H20M-14 6H14" stroke="#DB3D30" stroke-width="4" stroke-linecap="round"/>
+    <text x="0" y="3" text-anchor="middle" fill="#FFF" font-family="Arial,sans-serif" font-size="8" font-weight="700">RACING</text>
+  </g>
+</svg>

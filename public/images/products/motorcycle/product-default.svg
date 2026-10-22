@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="36" fill="#edf3f0"/>
+  <ellipse cx="256" cy="397" rx="142" ry="20" fill="#d6e1dc"/>
+  <path d="M143 336h226l-19 54H162z" fill="#176b46"/>
+  <path d="M177 336V190a25 25 0 0 1 25-25h108a25 25 0 0 1 25 25v146" fill="#fff" stroke="#34484b" stroke-width="14"/>
+  <path d="M198 227h116M198 263h116M198 299h116" stroke="#a5b8af" stroke-width="12" stroke-linecap="round"/>
+  <path d="m221 154 35-42 35 42" fill="none" stroke="#34484b" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="365" r="18" fill="#f4faf6"/>
+  <text x="256" y="449" text-anchor="middle" fill="#34484b" font-family="Arial,sans-serif" font-size="22" font-weight="700">PRODUK MOTOR</text>
+</svg>
