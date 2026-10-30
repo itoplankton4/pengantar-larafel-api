@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+• namespace App\Http\Middleware\Controllers;
+
+• use App\Events\OrderPlaced;
 
 use App\Models\Product;
 use App\Models\Sale;
@@ -93,6 +95,7 @@ class SalesController extends Controller
                 'is_demo' => false,
             ]);
         });
+        broadcast(new OrderPlaced($sale, $request->user()));
 
         return response()->json([
             'id' => $sale->id,

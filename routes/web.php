@@ -1,11 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\ProfilePhotoController;
+use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
 
 $defaultStore = (object) [
     'name' => 'VitoMart',
@@ -29,6 +30,29 @@ Route::get('/', function () {
 
     return redirect()->route(Auth::user()->role === 'admin' ? 'admin.dashboard' : 'kasir');
 });
+use App\Events\OrderPlaced;
+
+Route::get('/test-broadcast', function () {
+    $dataTransaksi = [
+        'id_order' => 'TRX-' . rand(1000, 9999),
+        'total' => 150000,
+        'status' => 'Paid'
+    ];
+
+    broadcast(new OrderPlaced($dataTransaksi));
+
+
+    return "Event OrderPlaced berhasil dipicu! Sila cek konsol browser Anda.";
+});
+
+Route::get('/products/create', function () {
+    return view('products.create');
+})->name('products.create');
+
+Route::post('/products', [
+    ProductController::class,
+    'store'
+])->name('products.store');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', function () {
