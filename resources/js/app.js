@@ -1,5 +1,3 @@
-import './bootstrap';
-
 const products = [
         { id: 1, code: 'BRG001', barcode: '899123456001', name: 'Kunci Pas Ring 10 mm', price: 35000, stock: 40 },
         { id: 2, code: 'BRG002', barcode: '899123456002', name: 'Kunci Pas Ring 12 mm', price: 42000, stock: 50 },
@@ -49,7 +47,7 @@ const products = [
         { id: 47, code: 'BRG047', barcode: '899123456047', name: 'Helm Full Face Grafis', price: 450000, stock: 8 },
         { id: 48, code: 'BRG048', barcode: '899123456048', name: 'Velg Racing Motor Set', price: 650000, stock: 8 },
     ];
-    const customProductStorageKey = 'vitomart-custom-products';
+    products.length = 0;
     const appUrl = document.querySelector('meta[name="app-url"]')?.content || '';
     const productImageBase = document.querySelector('meta[name="product-image-base"]')?.content || '/images/products/motorcycle';
     const defaultProductImage = document.querySelector('meta[name="default-product-image"]')?.content || '/images/products/product-default.jpg';
@@ -160,37 +158,98 @@ const products = [
     }
 
     function getProductImage(product) {
-        const photo = product && productPhotos[Number(product.id)];
-        if (photo) return `${productImageBase}/${photo}`;
-
-        const illustration = product && productIllustrations[Number(product.id)];
-        if (illustration) return createProductIllustration(product, illustration[0], illustration[1]);
-
+        const name = product?.name?.toLocaleLowerCase('id') || '';
+        const images = [
+            [/^mie sedaap/, 'mie-sedaap.jpg'],
+            [/^indomie/, 'indomie-goreng.jpg'],
+            [/aqua/, 'aqua-600.jpg'],
+            [/teh botol sosro/, 'teh-botol-sosro.jpg'],
+            [/beras/, 'rice.jpg'],
+            [/minyak goreng/, 'oil.jpg'],
+            [/gula pasir/, 'sugar.jpg'],
+            [/air mineral/, 'water.jpg'],
+            [/le minerale/, 'le-minerale.jpg'],
+            [/coca[\s-]?cola/, 'cola-bottle.jpg'],
+            [/oreo|vanilla.*cookie/, 'vanilla-cookie-pack.svg'],
+            [/pringles|keripik kentang|potato chip/, 'potato-chips-can.svg'],
+            [/sprite|lemon[\s-]?lime/, 'lemon-lime-drink.svg'],
+            [/teh pucuk/, 'teh-pucuk.jpg'],
+            [/kopi kapal api/, 'kopi-kapal-api.jpg'],
+            [/susu.*cokelat|cokelat.*susu/, 'cokelat-uht.jpg'],
+            [/susu.*full cream/, 'milk-full-cream.jpg'],
+            [/susu/, 'milk.jpg'],
+            [/roti/, 'bread.jpg'],
+            [/telur/, 'eggs.jpg'],
+            [/sabun mandi/, 'soap.jpg'],
+            [/pasta gigi/, 'toothpaste.jpg'],
+            [/tisu wajah/, 'tissue.jpg'],
+            [/biskuit|cookies/, 'cookies.jpg'],
+            [/kecap/, 'soy-sauce.jpg'],
+            [/saus sambal/, 'chili-sauce.jpg'],
+            [/deterjen/, 'detergent.jpg'],
+            [/shampoo/, 'shampoo.jpg'],
+            [/kopi/, 'coffee.jpg'],
+            [/air galon/, 'gallon.jpg'],
+            [/cola/, 'cola-bottle.jpg'],
+            [/sarden/, 'sardines.jpg'],
+            [/wafer/, 'chocolate-wafer.jpg'],
+            [/tisu toilet/, 'toilet-tissue.jpg'],
+            [/baterai/, 'aa-batteries.jpg'],
+            [/madu/, 'honey.jpg'],
+            [/spons/, 'dish-sponge.jpg'],
+            [/sabun cuci piring/, 'dish-soap.jpg'],
+            [/pembersih lantai/, 'floor-cleaner.jpg'],
+            [/tepung/, 'flour.jpg'],
+            [/garam/, 'salt.jpg'],
+            [/margarin/, 'margarine.jpg'],
+            [/yogurt/, 'yogurt-cup.jpg'],
+        ];
+        const image = images.find(([pattern]) => pattern.test(name))?.[1];
+        if (image) return `${productImageBase}/${image}`;
         if (product && product.image) return product.image.startsWith('/') ? `${appUrl}${product.image}` : product.image;
         return defaultProductImage;
     }
 
     async function loadProductsFromServer() {
         try {
-            const response = await fetch(`${appUrl}/products`, { headers: { Accept: 'application/json' } });
-            if (!response.ok) return;
+            const productsUrl = document.querySelector('meta[name="products-url"]')?.content || `${appUrl}/products`;
+            const response = await fetch(productsUrl, { headers: { Accept: 'application/json' } });
+            if (!response.ok) throw new Error('Daftar produk tidak dapat dimuat.');
             const serverProducts = await response.json();
-            serverProducts.forEach((product) => {
-                const existing = products.find((item) => item.id === Number(product.id) || item.code === product.code || item.barcode === product.barcode);
-                if (!existing) {
-                    products.push({
-                        id: Number(product.id),
-                        code: product.code,
-                        barcode: product.barcode || '',
-                        name: product.name,
-                        price: Number(product.price),
-                        stock: Number(product.stock || 0),
-                        image: product.image ? (product.image.startsWith('/') ? `${appUrl}${product.image}` : product.image) : defaultProductImage,
-                    });
-                }
-            });
-        } catch {
-            // Keep fallback product catalog when the backend is unavailable.
+            const featuredNames = [
+                'Indomie Goreng',
+                'Aqua 600ml',
+                'Teh Botol Sosro',
+                'Beras 5 Kg',
+                'Minyak Goreng 1 Liter',
+                'Gula Pasir 1 Kg',
+                'Mie Sedaap Goreng',
+                'Air Mineral 1.5 Liter',
+                'Le Minerale 600ml',
+                'Teh Pucuk Harum 350ml',
+                'Kopi Kapal Api',
+                'Susu UHT Cokelat 250ml',
+            ];
+            const featuredCodes = new Map(featuredNames.map((_, index) => [`BRG${String(index + 1).padStart(3, '0')}`, index]));
+            const featuredNameOrder = new Map(featuredNames.map((name, index) => [name, index]));
+            const catalog = serverProducts.map((product) => ({
+                    id: Number(product.id),
+                    code: product.code,
+                    barcode: product.barcode || '',
+                    name: product.name,
+                    price: Number(product.price),
+                    stock: Number(product.stock || 0),
+                    image: product.image || '',
+                }))
+                .sort((left, right) => {
+                    const leftOrder = featuredCodes.get(left.code) ?? featuredNameOrder.get(left.name) ?? Number.MAX_SAFE_INTEGER;
+                    const rightOrder = featuredCodes.get(right.code) ?? featuredNameOrder.get(right.name) ?? Number.MAX_SAFE_INTEGER;
+                    return leftOrder - rightOrder || left.name.localeCompare(right.name, 'id');
+                });
+            products.splice(0, products.length, ...catalog);
+        } catch (error) {
+            products.length = 0;
+            setCartStatus(error.message || 'Daftar produk gagal dimuat. Segarkan halaman untuk mencoba lagi.');
         }
     }
 
@@ -202,25 +261,6 @@ const products = [
         }
     }
 
-    function loadCustomProducts() {
-        try {
-            const savedProducts = JSON.parse(localStorage.getItem(customProductStorageKey) || '[]');
-            if (!Array.isArray(savedProducts)) return [];
-            return savedProducts.filter((product) => product && Number.isSafeInteger(product.id) && product.id > 0
-                && typeof product.name === 'string' && product.name.trim()
-                && typeof product.code === 'string' && typeof product.barcode === 'string'
-                && Number.isFinite(product.price) && product.price > 0
-                && typeof product.image === 'string' && isAllowedProductImage(product.image));
-        } catch {
-            return [];
-        }
-    }
-
-    loadCustomProducts().forEach((product) => {
-        if (!products.some((existing) => existing.id === product.id || existing.code === product.code || existing.barcode === product.barcode)) {
-            products.push({ ...product, isManual: true });
-        }
-    });
     const savedCartStorageKey = 'vitomart-saved-cart';
 
     function loadSavedCart() {
@@ -242,6 +282,11 @@ const products = [
     const resultBox = document.getElementById('productResults');
     const rupiah = (value) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(value);
     const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
+    const availableStock = (product) => Number.isFinite(Number(product.stock)) ? Math.max(0, Math.floor(Number(product.stock))) : Infinity;
+
+    function setCartStatus(message) {
+        document.getElementById('cartStatus').textContent = message;
+    }
 
     function newTransactionNumber() {
         const date = new Date();
@@ -266,13 +311,16 @@ const products = [
     function renderProductResults(matches) {
         resultBox.innerHTML = matches.length ? matches.map((product) => {
             const image = getProductImage(product);
+            const stock = availableStock(product);
             return `
-            <button class="product-result" type="button" data-product-id="${product.id}" aria-label="Tambah ${escapeHtml(product.name)}, ${rupiah(product.price)}">
+            <button class="product-result" type="button" data-product-id="${product.id}" aria-label="Tambah ${escapeHtml(product.name)}, ${rupiah(product.price)}, stok ${stock === Infinity ? 'tidak terbatas' : stock}" ${stock === 0 ? 'disabled' : ''}>
                 <span class="product-art"><img class="product-photo" src="${escapeHtml(image)}" alt="${escapeHtml(product.name)}" loading="lazy" decoding="async"></span>
                 <span class="product-info">
                     <span class="product-name">${escapeHtml(product.name)}</span>
                     <span class="product-code">${escapeHtml(product.code)}</span>
                     <span class="product-price">${rupiah(product.price)}</span>
+                    <span class="product-stock">${stock === Infinity ? 'Stok tersedia' : `Stok: ${stock}`}</span>
+                    <span class="product-add-label">${stock === 0 ? 'Stok habis' : '＋ Tambah ke keranjang'}</span>
                 </span>
             </button>`;
         }).join('') : '<div class="product-empty">Produk tidak ditemukan</div>';
@@ -306,8 +354,17 @@ const products = [
         const product = products.find((item) => item.id === productId);
         if (!product) return;
         const existing = cart.find((item) => item.id === productId);
+        if (existing && existing.qty >= availableStock(product)) {
+            setCartStatus(`Stok ${product.name} hanya ${availableStock(product)} item.`);
+            return;
+        }
+        if (!existing && availableStock(product) < 1) {
+            setCartStatus(`${product.name} sedang habis.`);
+            return;
+        }
         if (existing) existing.qty += 1;
         else cart.push({ ...product, qty: 1 });
+        setCartStatus(`${product.name} ditambahkan ke keranjang.`);
         searchInput.value = '';
         showAllProducts();
         renderCart();
@@ -324,7 +381,7 @@ const products = [
                     <td>${index + 1}</td>
                     <td><div class="cart-name">${escapeHtml(item.name)}</div><div class="cart-code">${escapeHtml(item.code)}</div></td>
                     <td class="text-right">${rupiah(item.price)}</td>
-                    <td><div class="qty-control"><button type="button" aria-label="Kurangi ${escapeHtml(item.name)}" data-change="-1" data-id="${item.id}">−</button><input type="number" min="1" value="${item.qty}" aria-label="Jumlah ${escapeHtml(item.name)}" data-qty-id="${item.id}"><button type="button" aria-label="Tambah ${escapeHtml(item.name)}" data-change="1" data-id="${item.id}">+</button></div></td>
+                    <td><div class="qty-control"><button type="button" aria-label="Kurangi ${escapeHtml(item.name)}" data-change="-1" data-id="${item.id}">−</button><input type="number" min="1" ${availableStock(item) === Infinity ? '' : `max="${availableStock(item)}"`} value="${item.qty}" aria-label="Jumlah ${escapeHtml(item.name)}" data-qty-id="${item.id}"><button type="button" aria-label="Tambah ${escapeHtml(item.name)}" data-change="1" data-id="${item.id}" ${item.qty >= availableStock(item) ? 'disabled' : ''}>+</button></div></td>
                     <td class="text-right"><strong>${rupiah(item.price * item.qty)}</strong></td>
                     <td class="text-center"><div class="cart-actions"><button class="save-item-button" type="button" data-save-id="${item.id}">Simpan</button><button class="remove-button" type="button" aria-label="Hapus ${escapeHtml(item.name)} dari checkout" data-remove-id="${item.id}">×</button></div></td>
                 </tr>`).join('');
@@ -416,6 +473,10 @@ const products = [
     function changeQty(id, amount) {
         const item = cart.find((entry) => entry.id === id);
         if (!item) return;
+        if (amount > 0 && item.qty >= availableStock(item)) {
+            setCartStatus(`Stok ${item.name} hanya ${availableStock(item)} item.`);
+            return;
+        }
         item.qty += amount;
         if (item.qty <= 0) removeItem(id);
         else renderCart();
@@ -424,7 +485,9 @@ const products = [
     function updateQty(id, value) {
         const item = cart.find((entry) => entry.id === id);
         if (!item) return;
-        item.qty = Math.max(1, Number.parseInt(value, 10) || 1);
+        const requestedQty = Math.max(1, Number.parseInt(value, 10) || 1);
+        item.qty = Math.min(requestedQty, availableStock(item));
+        if (requestedQty > item.qty) setCartStatus(`Stok ${item.name} hanya ${item.qty} item.`);
         renderCart();
     }
 
@@ -467,8 +530,9 @@ const products = [
         changeBox.hidden = false;
         const payment = Math.max(0, Number(document.getElementById('payment').value) || 0);
         const difference = payment - total;
-        changeBox.classList.toggle('short-payment', difference < 0 && payment > 0);
-        document.getElementById('changeLabel').textContent = difference < 0 && payment > 0 ? 'UANG KURANG' : 'KEMBALIAN';
+        const isShortPayment = payment < total;
+        changeBox.classList.toggle('short-payment', isShortPayment);
+        document.getElementById('changeLabel').textContent = isShortPayment ? 'UANG KURANG' : 'KEMBALIAN';
         document.getElementById('change').textContent = rupiah(Math.abs(difference));
     }
 
@@ -555,11 +619,12 @@ const products = [
         try {
             const sale = await recordSale(method, paid);
             resetTransaction();
+            const receiptUrl = `${sale.receipt_url}?print=1`;
             if (receiptWindow) {
-                receiptWindow.location.href = sale.receipt_url;
+                receiptWindow.location.href = receiptUrl;
                 receiptWindow.focus();
             } else {
-                window.location.href = sale.receipt_url;
+                window.location.href = receiptUrl;
             }
         } catch (error) {
             receiptWindow?.close();
@@ -581,7 +646,7 @@ const products = [
                 amount,
                 order_id: document.getElementById('transactionNumber').textContent,
                 customer_name: 'Customer',
-                customer_email: 'customer@vitomart.local',
+                customer_email: 'customer@ikvimart27.local',
                 customer_phone: document.getElementById('customerPhone').value || '',
                 payment_method: method,
             }),
@@ -596,51 +661,13 @@ const products = [
         const totals = getTotals();
         const receipt = document.getElementById('receipt');
         const demoNotice = isDemo ? '<p class="receipt-demo">SIMULASI - PEMBAYARAN TIDAK DIPROSES</p>' : '';
-        receipt.innerHTML = `<h1>VITOMART</h1><p>Jl. Contoh No. 123 · Jember</p>${demoNotice}<div class="receipt-rule"></div><div class="receipt-row"><span>${escapeHtml(document.getElementById('transactionNumber').textContent)}</span><span>${new Date().toLocaleString('id-ID')}</span></div><div class="receipt-rule"></div>${cart.map((item) => `<div class="receipt-item"><div>${escapeHtml(item.name)} × ${item.qty}</div><div class="receipt-row"><span>${rupiah(item.price)} / item</span><strong>${rupiah(item.price * item.qty)}</strong></div></div>`).join('')}<div class="receipt-rule"></div><div class="receipt-row"><span>Subtotal</span><strong>${rupiah(totals.subtotal)}</strong></div><div class="receipt-row"><span>Total</span><strong>${rupiah(totals.grandTotal)}</strong></div><div class="receipt-row"><span>Bayar (${escapeHtml(method)})</span><strong>${rupiah(paid)}</strong></div>${isDemo ? '' : `<div class="receipt-row"><span>Kembalian</span><strong>${rupiah(paid - totals.grandTotal)}</strong></div>`}<div class="receipt-rule"></div><p>Terima kasih telah berbelanja</p>`;
+        receipt.innerHTML = `<h1>IKVIMART27</h1><p>Jl. Contoh No. 123 · Jember</p>${demoNotice}<div class="receipt-rule"></div><div class="receipt-row"><span>${escapeHtml(document.getElementById('transactionNumber').textContent)}</span><span>${new Date().toLocaleString('id-ID')}</span></div><div class="receipt-rule"></div>${cart.map((item) => `<div class="receipt-item"><div>${escapeHtml(item.name)} × ${item.qty}</div><div class="receipt-row"><span>${rupiah(item.price)} / item</span><strong>${rupiah(item.price * item.qty)}</strong></div></div>`).join('')}<div class="receipt-rule"></div><div class="receipt-row"><span>Subtotal</span><strong>${rupiah(totals.subtotal)}</strong></div><div class="receipt-row"><span>Total</span><strong>${rupiah(totals.grandTotal)}</strong></div><div class="receipt-row"><span>Bayar (${escapeHtml(method)})</span><strong>${rupiah(paid)}</strong></div>${isDemo ? '' : `<div class="receipt-row"><span>Kembalian</span><strong>${rupiah(paid - totals.grandTotal)}</strong></div>`}<div class="receipt-rule"></div><p>Terima kasih telah berbelanja</p>`;
         window.print();
     }
 
     document.getElementById('searchButton').addEventListener('click', searchProducts);
     searchInput.addEventListener('input', searchProducts);
     searchInput.addEventListener('focus', showAllProducts);
-    document.getElementById('productForm').addEventListener('submit', (event) => {
-        event.preventDefault();
-        const name = document.getElementById('newProductName').value.trim();
-        const price = Number(document.getElementById('newProductPrice').value);
-        const id = Math.max(...products.map((product) => product.id), 0) + 1;
-        const code = document.getElementById('newProductCode').value.trim() || `BRG${String(id).padStart(3, '0')}`;
-        const barcode = document.getElementById('newProductBarcode').value.trim() || `899123456${String(id).padStart(3, '0')}`;
-        const imageInput = document.getElementById('newProductImage').value.trim();
-        const image = imageInput ? new URL(imageInput).href : defaultProductImage;
-        const status = document.getElementById('productFormStatus');
-
-        if (!Number.isFinite(price) || price <= 0) {
-            status.textContent = 'Harga harus lebih dari Rp 0.';
-            return;
-        }
-        if (products.some((product) => product.code.toLocaleLowerCase('id') === code.toLocaleLowerCase('id') || product.barcode === barcode)) {
-            status.textContent = 'Kode produk atau barcode sudah digunakan.';
-            return;
-        }
-        if (!name || (imageInput && !isAllowedProductImage(image))) {
-            status.textContent = 'Periksa nama produk dan URL foto.';
-            return;
-        }
-
-        const product = { id, code, barcode, name, price, image, isManual: true };
-        const savedProducts = products.filter((item) => item.isManual).concat(product);
-        try {
-            localStorage.setItem(customProductStorageKey, JSON.stringify(savedProducts));
-        } catch {
-            status.textContent = 'Produk tidak tersimpan. Penyimpanan browser mungkin penuh.';
-            return;
-        }
-        products.push(product);
-        document.getElementById('productForm').reset();
-        status.textContent = `${name} berhasil ditambahkan.`;
-        searchInput.value = '';
-        showAllProducts();
-    });
     searchInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();

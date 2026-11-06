@@ -19,7 +19,7 @@ class SalesReceiptTest extends TestCase
         $this->actingAs($cashier)
             ->get(route('sales.receipt', $sale))
             ->assertOk()
-            ->assertSee('VITOMART')
+            ->assertSee('ikvimart27')
             ->assertSee('TRX-STRUK-001')
             ->assertSee('Produk Uji')
             ->assertSee('Kasir Uji')
@@ -35,6 +35,18 @@ class SalesReceiptTest extends TestCase
         $this->actingAs($cashier)
             ->get(route('sales.receipt', $sale))
             ->assertForbidden();
+    }
+
+    public function test_receipt_can_open_the_print_dialog_automatically(): void
+    {
+        $cashier = User::factory()->create(['role' => 'kasir']);
+        $sale = $this->createSale($cashier);
+
+        $this->actingAs($cashier)
+            ->get(route('sales.receipt', $sale).'?print=1')
+            ->assertOk()
+            ->assertSee('window.print()', false)
+            ->assertSee('Cetak struk');
     }
 
     private function createSale(User $cashier): Sale

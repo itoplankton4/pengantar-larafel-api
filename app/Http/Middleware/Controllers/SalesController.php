@@ -1,8 +1,9 @@
 <?php
 
-• namespace App\Http\Middleware\Controllers;
+namespace App\Http\Middleware\Controllers;
 
-• use App\Events\OrderPlaced;
+use App\Events\OrderPlaced;
+use Illuminate\Routing\Controller;
 
 use App\Models\Product;
 use App\Models\Sale;
@@ -116,7 +117,7 @@ class SalesController extends Controller
             ? StoreSetting::query()->latest()->first()
             : null;
         $store ??= (object) [
-            'name' => 'VitoMart',
+            'name' => 'ikvimart27',
             'address' => 'Jl. Contoh No. 123',
             'city' => 'Jember',
             'phone' => '0812-xxxx-xxxx',

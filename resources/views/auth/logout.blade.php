@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f2f4f7">
-    <title>Keluar | VitoMart</title>
+    <title>Keluar | ikvimart27</title>
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -13,8 +13,7 @@
         <aside class="auth-brand">
             <img class="auth-store-illustration" src="{{ asset('images/online-store.svg') }}" alt="" aria-hidden="true">
             <div class="auth-brand-top">
-                <img class="auth-brand-mark" src="{{ asset('images/vm-logo.svg') }}" alt="" aria-hidden="true">
-                <span class="auth-brand-name">VITO<br>MART</span>
+                <span class="auth-brand-name">ikvimart27</span>
             </div>
             <div class="auth-brand-main">
                 <p class="auth-brand-kicker">SESI PENGGUNA</p>

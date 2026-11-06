@@ -65,14 +65,21 @@
         .product-results { display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 11px; max-height: min(58vh, 660px); overflow: auto; padding: 13px; background: #f7f8f5; border-top: 1px solid var(--line); scrollbar-gutter: stable; }
                 .product-result { display: block; min-width: 0; padding: 0; overflow: hidden; color: var(--ink); text-align: left; background: white; border: 1px solid #e5e9e3; border-radius: 8px; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
         .product-result:hover, .product-result:focus-visible { transform: translateY(-2px); border-color: #a8c6a7; box-shadow: 0 10px 20px rgba(36, 75, 48, .12); outline: none; }
+        .product-result:disabled { cursor: not-allowed; opacity: .58; }
+        .product-result:disabled:hover { transform: none; box-shadow: none; }
         .product-art { display: block; aspect-ratio: 1.32; overflow: hidden; background: linear-gradient(135deg, #f7f4ee, #eef1e9); border-bottom: 1px solid #edf0ea; }
-        .product-photo { display: block; width: 100%; height: 100%; padding: 8px; object-fit: contain; }
+        .product-photo { display: block; width: 100%; height: 100%; object-fit: cover; }
         .product-info { display: grid; gap: 5px; padding: 10px; }
         .product-name { min-height: 34px; overflow: hidden; font-size: 12px; font-weight: 700; line-height: 1.4; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
         .product-code { margin-top: 3px; color: var(--muted); font-size: 11px; }
         .product-price { margin-top: 2px; color: #167446; font-size: 13px; font-weight: 800; white-space: nowrap; }
+        .product-stock { color: var(--muted); font-size: 10px; }
+        .product-add-label { margin-top: 4px; padding: 7px 8px; color: var(--blue-dark); text-align: center; background: #edf4fc; border-radius: 4px; font-size: 11px; font-weight: 750; }
+        .product-result:disabled .product-add-label { color: #687178; background: #eef0f1; }
         .product-empty { grid-column: 1 / -1; padding: 32px 12px; color: var(--muted); text-align: center; }
         .item-count { color: var(--ink); font-size: 12px; }
+        .cart-status { margin: 0; padding: 0 14px; color: var(--green); font-size: 12px; }
+        .cart-status:empty { display: none; }
         .table-scroll { overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; text-align: left; }
         thead { background: #f4f6f8; }
@@ -87,6 +94,7 @@
         .cart-code { margin-top: 3px; color: var(--muted); font-size: 10px; }
         .qty-control { display: flex; justify-content: center; align-items: center; gap: 4px; }
         .qty-control button { width: 26px; height: 26px; padding: 0; color: var(--ink); background: white; border: 1px solid #cbd3d8; border-radius: 3px; font-weight: 700; }
+        .qty-control button:disabled { color: #9aa3a8; background: #f0f2f3; cursor: not-allowed; }
         .qty-control input { width: 42px; height: 26px; padding: 0 3px; text-align: center; border: 1px solid #cbd3d8; border-radius: 3px; }
         .remove-button { width: 28px; height: 28px; color: var(--red); background: transparent; border: 0; font-size: 19px; }
         .cart-actions, .saved-cart-actions { display: flex; justify-content: center; align-items: center; gap: 4px; }
@@ -268,7 +276,7 @@
         .auth-store-illustration { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
         .auth-brand-top { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; }
         .auth-brand-mark { display: block; flex: 0 0 84px; width: 84px; height: 60px; object-fit: contain; filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.3)); }
-        .auth-brand-name { font-size: 11px; font-weight: 800; line-height: 1.45; }
+        .auth-brand-name { font-size: 17px; font-weight: 800; line-height: 1.45; }
         .auth-brand-main { position: relative; z-index: 1; margin: auto 0; padding: 50px 0; }
         .auth-brand-kicker, .auth-step { margin: 0 0 14px; font-size: 10px; font-weight: 800; letter-spacing: .12em; }
         .auth-brand-kicker { color: #f5d99f; }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f2f4f7">
-    <title>Login | VitoMart</title>
+    <title>Login | ikvimart27</title>
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -13,12 +13,11 @@
         <aside class="auth-brand">
             <img class="auth-store-illustration" src="{{ asset('images/online-store.svg') }}" alt="" aria-hidden="true">
             <div class="auth-brand-top">
-                <img class="auth-brand-mark" src="{{ asset('images/vm-logo.svg') }}" alt="" aria-hidden="true">
-                <span class="auth-brand-name">VITO<br>MART</span>
+                <span class="auth-brand-name">ikvimart27</span>
             </div>
             <div class="auth-brand-main">
                 <p class="auth-brand-kicker">SISTEM TOKO · 2026</p>
-                <h2>Ruang kerja<br>VitoMart.</h2>
+                <h2>Ruang kerja<br>ikvimart27.</h2>
                 <div class="auth-role-list" aria-label="Jenis akun">
                     <span><b>01</b> ADMIN</span>
                     <span><b>02</b> KASIR</span>
@@ -48,7 +47,7 @@
             <div class="auth-role-grid">
                 <form class="auth-role-card auth-login-card" method="POST" action="{{ route('login.store') }}">
                     @csrf
-                    <h2>Masuk VitoMart</h2>
+                    <h2>Masuk ikvimart27</h2>
                     <div class="auth-field">
                         <label for="admin-email">Email</label>
                         <input id="admin-email" name="email" type="email" value="{{ old('email') }}" autocomplete="username" placeholder="Masukkan email" autocapitalize="none" spellcheck="false" required autofocus>
@@ -78,7 +77,7 @@
                 <div class="auth-demo-row"><span>ADMIN</span><code>olivia2024@gmail.com</code><code>olivia2024</code></div>
                 <div class="auth-demo-row"><span>KASIR</span><code>itolulu2005@gmail.com</code><code>vito2005</code></div>
             </aside>
-            <p class="auth-footnote">Dengan masuk, Anda menyetujui penggunaan sistem toko VitoMart.</p>
+            <p class="auth-footnote">Dengan masuk, Anda menyetujui penggunaan sistem toko ikvimart27.</p>
         </div>
     </section>
 </main>

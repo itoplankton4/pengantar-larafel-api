@@ -23,7 +23,7 @@ class ExampleTest extends TestCase
         $response = $this->actingAs($cashier)->get('/kasir');
 
         $response->assertStatus(200);
-        $response->assertSee('VITOMART');
+        $response->assertSee('ikvimart27');
         $response->assertSee('Ringkasan Pembayaran');
         $response->assertSee('Bayar & Cetak');
     }
@@ -35,7 +35,7 @@ class ExampleTest extends TestCase
 
         $response->assertOk();
         $response->assertSee('Profil Toko dan Pengelola');
-        $response->assertSee('VitoMart');
+        $response->assertSee('ikvimart27');
         $response->assertSee('Jl. Contoh No. 123');
         $response->assertSee($cashier->name);
     }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f2f4f7">
-    <title>Profil | VitoMart</title>
+    <title>Profil | ikvimart27</title>
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -94,7 +94,7 @@
                 <dl class="profile-details">
                     <div class="profile-detail">
                         <dt>Nama toko</dt>
-                        <dd>{{ $store->name ?? 'VitoMart' }}</dd>
+                        <dd>{{ $store->name ?? 'ikvimart27' }}</dd>
                     </div>
                     <div class="profile-detail">
                         <dt>Alamat</dt>

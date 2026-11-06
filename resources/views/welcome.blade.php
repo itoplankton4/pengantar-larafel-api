@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard POS - VitoMart</title>
+    <title>Dashboard POS - ikvimart27</title>
     <!-- Menggunakan Bootstrap 5 untuk tampilan rapi dan modern -->
     <link href="https://jsdelivr.net" rel="stylesheet">
     <!-- Menggunakan Bootstrap Icons untuk ikon menu -->
@@ -103,7 +103,7 @@
 
     <!-- FOOTER -->
     <footer class="text-center text-muted py-4 border-top bg-white">
-        <p class="small mb-0">&copy; 2026 VitoMart. UPT Praktikum Pemrograman Web.</p>
+        <p class="small mb-0">&copy; 2026 ikvimart27. UPT Praktikum Pemrograman Web.</p>
     </footer>
 
     <!-- Bootstrap JS Bundle -->

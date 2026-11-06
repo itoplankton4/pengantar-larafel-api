@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+  <defs>
+    <linearGradient id="can" x2="1" y2="0">
+      <stop stop-color="#b80e20"/>
+      <stop offset=".22" stop-color="#ef3740"/>
+      <stop offset=".72" stop-color="#d8192a"/>
+      <stop offset="1" stop-color="#8e0918"/>
+    </linearGradient>
+    <linearGradient id="chip" x2="0" y2="1">
+      <stop stop-color="#ffe899"/>
+      <stop offset="1" stop-color="#e7a82b"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="#f3f5f2"/>
+  <ellipse cx="320" cy="419" rx="116" ry="20" fill="#d9dedb"/>
+  <ellipse cx="320" cy="93" rx="91" ry="24" fill="#4a2824"/>
+  <path d="M229 95h182v275c0 18-41 34-91 34s-91-16-91-34z" fill="url(#can)"/>
+  <ellipse cx="320" cy="370" rx="91" ry="34" fill="#a70c1c"/>
+  <ellipse cx="320" cy="96" rx="91" ry="24" fill="#f05450"/>
+  <ellipse cx="320" cy="98" rx="76" ry="15" fill="#ffe5aa"/>
+  <g fill="url(#chip)" stroke="#d5972c" stroke-width="4">
+    <path d="M269 157q48-34 96 0l-10 55q-38 28-77 0z"/>
+    <path d="M252 218q49-29 93 4l-16 51q-42 23-76-5z"/>
+    <path d="M297 274q47-35 88-2l-12 55q-39 25-80-2z"/>
+  </g>
+  <text x="320" y="146" fill="#fff3c9" font-family="Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle" letter-spacing="3">ORIGINAL</text>
+  <text x="320" y="356" fill="#fff" font-family="Arial,sans-serif" font-size="19" font-weight="800" text-anchor="middle">POTATO CHIPS</text>
+</svg>

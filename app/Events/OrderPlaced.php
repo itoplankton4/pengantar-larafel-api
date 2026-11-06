@@ -2,6 +2,8 @@
 
 namespace App\Events;
 
+use App\Models\Sale;
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -17,7 +19,7 @@ class OrderPlaced implements ShouldBroadcast
     public $order;
     public $user;
 
-    public function __construct($order, $user)
+    public function __construct(Sale $order, User $user)
     {
         $this->order = $order;
         $this->user = $user;

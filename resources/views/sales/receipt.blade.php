@@ -165,7 +165,12 @@
 </main>
 <nav class="receipt-actions" aria-label="Aksi struk">
     <a href="{{ route('kasir') }}">Kembali ke kasir</a>
-    <button type="button" onclick="window.print()">Cetak ulang</button>
+    <button type="button" onclick="window.print()">Cetak struk</button>
 </nav>
+@if (request()->boolean('print'))
+    <script>
+        window.addEventListener('load', () => window.print(), { once: true });
+    </script>
+@endif
 </body>
 </html>

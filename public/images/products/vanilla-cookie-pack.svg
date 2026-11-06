@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+  <defs>
+    <linearGradient id="pack" x2="0" y2="1">
+      <stop stop-color="#2673ca"/>
+      <stop offset="1" stop-color="#103f91"/>
+    </linearGradient>
+    <linearGradient id="cookie" x2="0" y2="1">
+      <stop stop-color="#58331f"/>
+      <stop offset="1" stop-color="#27170f"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="#f3f6fa"/>
+  <ellipse cx="320" cy="416" rx="188" ry="22" fill="#d9e0e8"/>
+  <g transform="rotate(-5 320 240)">
+    <path d="M142 110 190 77h260l48 33v252l-48 35H190l-48-35z" fill="#d8eaff"/>
+    <path d="M155 120 197 91h246l42 29v232l-42 29H197l-42-29z" fill="url(#pack)" stroke="#fff" stroke-width="8"/>
+    <path d="M155 316h330v36l-42 29H197l-42-29z" fill="#f4dc8c"/>
+    <text x="320" y="165" fill="#fff" font-family="Arial,sans-serif" font-size="29" font-weight="700" text-anchor="middle" letter-spacing="3">VANILLA</text>
+    <text x="320" y="207" fill="#fff" font-family="Arial,sans-serif" font-size="35" font-weight="800" text-anchor="middle">SANDWICH COOKIES</text>
+    <g fill="url(#cookie)" stroke="#e9c991" stroke-width="5">
+      <circle cx="264" cy="281" r="52"/>
+      <circle cx="368" cy="278" r="52"/>
+    </g>
+    <g fill="#fff2cf">
+      <circle cx="264" cy="281" r="29"/>
+      <circle cx="368" cy="278" r="29"/>
+    </g>
+    <g fill="#e9c991">
+      <circle cx="246" cy="263" r="4"/><circle cx="282" cy="263" r="4"/><circle cx="246" cy="299" r="4"/><circle cx="282" cy="299" r="4"/>
+      <circle cx="350" cy="260" r="4"/><circle cx="386" cy="260" r="4"/><circle cx="350" cy="296" r="4"/><circle cx="386" cy="296" r="4"/>
+    </g>
+  </g>
+</svg>
